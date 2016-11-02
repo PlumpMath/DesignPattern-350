@@ -13,20 +13,13 @@ public class LoadBalancer {
     private LoadBalancer(){
         serverList = new ArrayList<String>();
     }
-
-    private void f(){
-
-    }
-    public void f(int i){}
-    public void f(float i){}
-    public void f(float i,int j){}
-    public void f(int i,int j){}
-
+    // Static Nested Class 不依赖于外部类实例被实例化
     private static class Holder{
         private static final LoadBalancer instance = new LoadBalancer();
     }
 
     public static LoadBalancer getInstance(){
+        //第一次调用时Static Nested Class被实例化
         return Holder.instance;
     }
 

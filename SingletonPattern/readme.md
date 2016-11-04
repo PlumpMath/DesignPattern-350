@@ -11,12 +11,12 @@
 -------
 *  处理逻辑（解决方案）
 >1. 饿汉式单例
-![eagersingleton.gif](.\img\eagersingleton.gif)
+![eagersingleton.gif](eagersingleton.gif)
 > 特点：
 > 	- 类加载时，就被初始化
 > 	
 >2. 懒汉式单例
-![eagersingleton.gif](.\img\eagersingleton.gif)
+![eagersingleton.gif](eagersingleton.gif)
 >特点：
 >	- 第一次调用getInstance()方法时实例化，在类加载时并不自行实例化
 >	- 需要注意线程安全,一般通过**synchronized**解决，一对getInstance()函数直接加线程锁，二可以对getInstance()中实例化对象那一块进行**double-check**，避免并发时产生多个实例对象。

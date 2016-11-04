@@ -12,18 +12,18 @@
 *  处理逻辑（解决方案）
 
 1. 饿汉式单例
-![eagersingleton.gif](eagersingleton.gif)
-特点：
-	- 类加载时，就被初始化
+    ![eagersingleton.gif](eagersingleton.gif)
+    特点：
+        - 类加载时，就被初始化
 2. 懒汉式单例
-![eagersingleton.gif](eagersingleton.gif)
-特点：
-	- 第一次调用getInstance()方法时实例化，在类加载时并不自行实例化
-	- 需要注意线程安全,一般通过**synchronized**解决，一对getInstance()函数直接加线程锁，二可以对getInstance()中实例化对象那一块进行**double-check**，避免并发时产生多个实例对象。
+    ![lazsingleton.gif](lazysingleton.gif)
+    特点：
+        - 第一次调用getInstance()方法时实例化，在类加载时并不自行实例化
+        - 需要注意线程安全,一般通过**synchronized**解决，一对getInstance()函数直接加线程锁，二可以对getInstance()中实例化对象那一块进行**double-check**，避免并发时产生多个实例对象。
 3. IoDH单例
-通过静态内部类（不依赖于外部类实例被实例化）实现。
-特点：
-	- 由于静态单例对象没有作为Singleton的成员变量直接实例化，因此类加载时不会实例化Singleton，第一次调用getInstance()时将加载内部类HolderClass，在该内部类中定义了一个static类型的变量instance，此时会首先初始化这个成员变量，由Java虚拟机来保证其线程安全性，确保该成员变量只能初始化一次。
+    通过静态内部类（不依赖于外部类实例被实例化）实现。
+    特点：
+        - 由于静态单例对象没有作为Singleton的成员变量直接实例化，因此类加载时不会实例化Singleton，第一次调用getInstance()时将加载内部类HolderClass，在该内部类中定义了一个static类型的变量instance，此时会首先初始化这个成员变量，由Java虚拟机来保证其线程安全性，确保该成员变量只能初始化一次。
 
 --------
 * 效果
